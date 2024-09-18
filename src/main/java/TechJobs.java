@@ -9,6 +9,7 @@ import java.util.Scanner;
 public class TechJobs {
 
     static Scanner in = new Scanner(System.in);
+    static int newline = 1;
 
     public static void main (String[] args) {
 
@@ -77,6 +78,7 @@ public class TechJobs {
         Boolean validChoice = false;
         String[] choiceKeys = new String[choices.size()];
 
+
         // Put the choices in an ordered structure so we can
         // associate an integer with each one
         int i = 0;
@@ -86,8 +88,13 @@ public class TechJobs {
         }
 
         do {
+            //Test 2: to pass the skip /n test: after no results on search term
+            if(newline == 0){
+                System.out.println(menuHeader);
+            }
+            else System.out.println("\n" + menuHeader);
 
-            System.out.println("\n" + menuHeader);
+            newline = 1;
 
             // Print available choices
             for (int j = 0; j < choiceKeys.length; j++) {
@@ -120,6 +127,18 @@ public class TechJobs {
     // Print a list of jobs
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
 
-        System.out.println("printJobs is not implemented yet");
+//        System.out.println("printJobs is not implemented yet");
+            if(!someJobs.isEmpty()){
+                for(HashMap<String,String> rec: someJobs){
+                    System.out.println("\n*****");
+                        for(String i: rec.keySet()){
+                        System.out.println( i + ": "+ rec.get(i));
+                        }
+                    System.out.println("*****");
+                }
+            }else{
+                System.out.println("No Results");
+                newline = 0;
+            }
     }
 }
