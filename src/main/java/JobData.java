@@ -50,7 +50,13 @@ public class JobData {
         // load data, if not already loaded
         loadData();
 
-        return allJobs;
+        //Bonus Mission 2.Creating clone using copy constructor
+
+//        return allJobs;
+
+        ArrayList<HashMap<String, String>> allJobsClone;
+        allJobsClone = new ArrayList<>(allJobs);
+        return  allJobsClone;
     }
 
     /**

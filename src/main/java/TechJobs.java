@@ -48,6 +48,10 @@ public class TechJobs {
                     System.out.println("\n*** All " + columnChoices.get(columnChoice) + " Values ***");
 
                     // Print list of skills, employers, etc
+
+                    //Bonus Mission 1: sorting list
+                    results.sort( (a, b) -> { return -1 * b.compareTo(a); } );
+
                     for (String item : results) {
                         System.out.println(item);
                     }
